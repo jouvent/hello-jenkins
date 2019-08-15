@@ -5,7 +5,6 @@ node {
 }
 stage("Ready to deploy")
 {
-    milestone
     input "Deploy to prod?"
 }
 node {

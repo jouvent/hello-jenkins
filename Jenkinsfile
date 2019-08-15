@@ -1,6 +1,9 @@
 node {
     stage('build'){
-        echo "building"
+        agent { docker { image 'maven:3.3.3' } }
+        steps {
+            sh 'mvn --version'
+        }
     }
 }
 stage("Ready to deploy")
@@ -9,6 +12,9 @@ stage("Ready to deploy")
 }
 node {
     stage('deploy to prod'){
-        echo "deploying"
+        agent { docker { image 'veruscript/ebcli' } }
+        steps {
+            sh 'eb -h'
+        }
     }
 }

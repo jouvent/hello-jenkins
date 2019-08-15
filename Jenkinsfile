@@ -3,7 +3,11 @@ node {
         echo "building"
     }
 }
-input "Deploy to prod?"
+stage("Ready to deploy")
+{
+    milestone
+    input "Deploy to prod?"
+}
 node {
     stage('deploy to prod'){
         echo "deploying"

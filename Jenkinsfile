@@ -9,7 +9,7 @@ pipeline {
         }
         stage("Ready for staging") {
             steps {
-                milestone()
+                milestone(1)
                 input "Deploy to staging?"
             }
         }
@@ -21,7 +21,7 @@ pipeline {
         }
         stage("Ready for prod") {
             steps {
-                milestone()
+                milestone(2)
                 input "Deploy to prod?"
             }
         }

@@ -7,7 +7,7 @@ pipeline {
                 sh 'mvn --version'
             }
         }
-        stage("Ready to deploy") {
+        stage("Ready for staging") {
             steps {
                 milestone()
                 input "Deploy to staging?"
@@ -19,7 +19,7 @@ pipeline {
                 sh 'eb -h'
             }
         }
-        stage("Ready to deploy") {
+        stage("Ready for prod") {
             steps {
                 milestone()
                 input "Deploy to prod?"

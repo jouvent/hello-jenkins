@@ -9,6 +9,19 @@ pipeline {
         }
         stage("Ready to deploy") {
             steps {
+                milestone()
+                input "Deploy to staging?"
+            }
+        }
+        stage('deploy to staging') {
+            agent { docker { image 'veruscript/ebcli' } }
+            steps {
+                sh 'eb -h'
+            }
+        }
+        stage("Ready to deploy") {
+            steps {
+                milestone()
                 input "Deploy to prod?"
             }
         }
